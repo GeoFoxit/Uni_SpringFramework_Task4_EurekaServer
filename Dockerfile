@@ -8,6 +8,6 @@ RUN mvn -B -s /usr/share/maven/ref/settings-docker.xml package -DskipTests
 FROM java:8-jre-alpine
 EXPOSE 8761
 RUN mkdir /app
-COPY --from=MAVEN_TOOL_CHAIN /tmp/target/*.jar /app/eurekaserver.jar
+COPY --from=MAVEN_TOOL_CHAIN /tmp/target/*.jar /app/eureka.jar
 
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom","-jar","/app/eurekaserver.jar"]
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom","-jar","/app/eureka.jar"]
